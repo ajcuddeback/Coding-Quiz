@@ -2,6 +2,7 @@
 
 //create a start quiz function that will link to a button
 
+
 //seperate each Question numbers in to a array?
 
 //call upon each array whenever one of the answers are clicked

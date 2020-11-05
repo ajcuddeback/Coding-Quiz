@@ -1,6 +1,13 @@
 //create all global variables
 var mainContent = document.querySelector("#main-content");
 
+// Questions Array
+var questionOne = ["Question One", "Option One", "Option 2", "Option 3", "Option 4"];
+var questionTwo = ["Question Two", "Option One", "Option 2", "Option 3", "Option 4"];
+var questionThree = ["Question Three", "Option One", "Option 2", "Option 3", "Option 4"];
+var questionFour = ["Question Four", "Option One", "Option 2", "Option 3", "Option 4"];
+var questions = [questionOne, questionTwo, questionThree, questionFour];
+
 //welcome varibales
 var welcomeHeading = document.createElement("h1");
 var welcomeRules = document.createElement("h3");

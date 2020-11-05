@@ -2,56 +2,94 @@
 var mainContent = document.querySelector("#main-content");
 
 // Questions Array
-var questionOne = ["Question One", "Option One", "Option 2", "Option 3", "Option 4"];
-var questionTwo = ["Question Two", "Option One", "Option 2", "Option 3", "Option 4"];
-var questionThree = ["Question Three", "Option One", "Option 2", "Option 3", "Option 4"];
-var questionFour = ["Question Four", "Option One", "Option 2", "Option 3", "Option 4"];
-var questions = [questionOne, questionTwo, questionThree, questionFour];
+var questions = [
+    {
+        question: 'Question One', 
+        optionOne: 'Answer 1A',
+        optionTwo: 'Answer 1B',
+        optionThree: 'Answer1C',
+        optionFour: 'Answer1D',
+        Answer: 'Answer 1A'
+    },
+    {
+        question: 'Question Two', 
+        optionOne: 'Answer 2A',
+        optionTwo: 'Answer 2B',
+        optionThree: 'Answer2C',
+        optionFour: 'Answer2D',
+        Answer: 'Answer 2C'
+    },
+    {
+        question: 'Question Three', 
+        optionOne: 'Answer 3A',
+        optionTwo: 'Answer 3B',
+        optionThree: 'Answer3C',
+        optionFour: 'Answer3D',
+        Answer: 'Answer 3A'
+    },
+    {
+        question: 'Question Four', 
+        optionOne: 'Answer 4A',
+        optionTwo: 'Answer 4B',
+        optionThree: 'Answer4C',
+        optionFour: 'Answer4D',
+        Answer: 'Answer 4B'
+    },
+    {
+        question: 'Question Five', 
+        optionOne: 'Answer 5A',
+        optionTwo: 'Answer 5B',
+        optionThree: 'Answer5C',
+        optionFour: 'Answer5D',
+        Answer: 'Answer 5D'
+    }
+];
 
-//welcome varibales
-var welcomeHeading = document.createElement("h1");
-var welcomeRules = document.createElement("h3");
-var startButton = document.createElement("button")
-
-//styles for variables
-welcomeHeading.className = "welcome-heading";
-welcomeRules.className = "welcome-rules";
-startButton.className = "start-btn";
-
-//text-content for welcome items
-welcomeHeading.textContent = "Welcome to Code Quiz";
-welcomeRules.textContent = "Try to answer as many questions as possible before the timer runs out! Once you press start you will have 60 seconds to answer 5 questions. Each answer you get wrong 10 seconds will be deducted from you time. Good Luck!";
-startButton.textContent = "Start";
-
-
-// Append Welcome items
-mainContent.appendChild(welcomeHeading);
-mainContent.appendChild(welcomeRules);
-mainContent.appendChild(startButton);
+var counter = 0;
+var startButton = document.querySelector("#startBtn");
+var quizButton = document.querySelectorAll("#quizButton");
 
 var startQuiz = function() {
-    // Remove the welcome screen
-    welcomeHeading.remove();
-    welcomeRules.remove();
-    startButton.remove();
-}
+    document.querySelector(".welcome-content").remove();
+    mainTest();
+};
 
+var mainTest = function() {
+    var question = document.createElement("h1");
+    question.className = "question-type";
+    question.id = "questionType";
+    question.textContent = questions[counter].question;
+    mainContent.appendChild(question);
 
-//seperate each Question numbers in to a array?
+    var optionOne = document.createElement("button");
+    optionOne.className = "quiz-button btn";
+    optionOne.id = "quizButton";
+    optionOne.textContent = questions[counter].optionOne;
+    mainContent.appendChild(optionOne);
 
-//call upon each array whenever one of the answers are clicked
+    var optionTwo = document.createElement("button");
+    optionTwo.className = "quiz-button btn";
+    optionTwo.id = "quizButton";
+    optionTwo.textContent = questions[counter].optionTwo;
+    mainContent.appendChild(optionTwo);
 
-//all multiple choice questions must be buttons
+    var optionThree = document.createElement("button");
+    optionThree.className = "quiz-button btn";
+    optionThree.id = "quizButton";
+    optionThree.textContent = questions[counter].optionThree;
+    mainContent.appendChild(optionThree);
 
-//create a time function that will count down from 60 to 0 and will have an iteration of 1 second
+    var optionFour = document.createElement("button");
+    optionFour.className = "quiz-button btn";
+    optionFour.id = "quizButton";
+    optionFour.textContent = questions[counter].optionFour;
+    mainContent.appendChild(optionFour);
 
-//time function will go down 10 seconds every wrong answer
+    // debugger;
+    counter++
+};
 
-// time function will stop whenever all questions are answered or when it hits zero
-
-// quiz will end when all multiple choice answered are answered or player runs out of time
-
-//Add an input for player to put their initials and record it in local memeory along side their high score
- 
-//print out their initials and high score on last page
 startButton.addEventListener ("click", startQuiz);
+quizButton.forEach((btn) => {
+    btn.addEventListener("click", mainTest)
+})

@@ -1,0 +1,11 @@
+.main-content {
+    width: 100%;
+    border: 1px solid black;
+}
+
+.welcome-heading {
+    font-size: 50px;
+}
+.welcome-rules {
+    font-size: 20px;
+}

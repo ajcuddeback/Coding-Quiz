@@ -10,11 +10,11 @@ var startButton = document.createElement("button")
 //styles for variables
 welcomeHeading.className = "welcome-heading";
 welcomeRules.className = "welcome-rules";
-startButton.className = "start-button";
+startButton.className = "start-btn";
 
 //text-content for welcome items
-welcomeHeading.textContent = "Welcome to quiz";
-welcomeRules.textContent = "Press start to begin";
+welcomeHeading.textContent = "Welcome to Code Quiz";
+welcomeRules.textContent = "Try to answer as many questions as possible before the timer runs out! Once you press start you will have 60 seconds to answer 5 questions. Each answer you get wrong 10 seconds will be deducted from you time. Good Luck!";
 startButton.textContent = "Start";
 
 

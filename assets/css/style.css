@@ -1,6 +1,18 @@
-.main-content {
+* {
+    outline: none;
+}
+
+main {
     width: 100%;
-    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+}
+
+.main-content {
+    width: 40%;
+    margin-top: 200px;
+    text-align: center;
+    /* border: 1px solid black; */
 }
 
 .welcome-heading {
@@ -8,4 +20,17 @@
 }
 .welcome-rules {
     font-size: 20px;
+}
+.start-btn {
+    padding: 15px 30px;
+    border: none;
+    position: relative;
+    background-color: rgb(166, 77, 255);
+    font-size: 15px;
+    font-weight: 500;
+    color: white;
+    border-radius: 4px;
+}
+.start-btn:active {
+    top: 3px;
 }

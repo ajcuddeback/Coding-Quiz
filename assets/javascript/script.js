@@ -1,6 +1,5 @@
 //create all global variables
 var mainContent = document.querySelector("#main-content");
-//create a start quiz function that will link to a button
 
 //welcome varibales
 var welcomeHeading = document.createElement("h1");
@@ -23,6 +22,13 @@ mainContent.appendChild(welcomeHeading);
 mainContent.appendChild(welcomeRules);
 mainContent.appendChild(startButton);
 
+var startQuiz = function() {
+    // Remove the welcome screen
+    welcomeHeading.remove();
+    welcomeRules.remove();
+    startButton.remove();
+}
+
 
 //seperate each Question numbers in to a array?
 
@@ -41,3 +47,4 @@ mainContent.appendChild(startButton);
 //Add an input for player to put their initials and record it in local memeory along side their high score
  
 //print out their initials and high score on last page
+startButton.addEventListener ("click", startQuiz);

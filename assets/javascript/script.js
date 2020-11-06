@@ -4,44 +4,44 @@ var mainContent = document.querySelector("#main-content");
 // Questions Array
 var questions = [
     {
-        question: 'Question One', 
-        optionOne: 'Answer 1A',
-        optionTwo: 'Answer 1B',
-        optionThree: 'Answer1C',
-        optionFour: 'Answer1D',
+        question: 'This is a quiestion?This is a quiestion?This is a quiestion?This is a quiestion?This is a quiestion?', 
+        optionOne: 'Answer 1AAnswer 1AAnswer 1A',
+        optionTwo: 'Answer 1Bplaceholderplaceholder',
+        optionThree: 'Answer1Cplaceholderplaceholder',
+        optionFour: 'Answer1Dplaceholderplaceholder',
         Answer: 1
     },
     {
-        question: 'Question Two', 
-        optionOne: 'Answer 2A',
-        optionTwo: 'Answer 2B',
-        optionThree: 'Answer2C',
-        optionFour: 'Answer2D',
+        question: 'Ques tionTwovp laceho lderplace hold erplaceholder placeholde rplace holderpla ceholderpla ceholder', 
+        optionOne: 'placeholderplaceholderplaceholderplaceholder',
+        optionTwo: 'Answer 2B placeholderplaceholderplaceholderplaceholder',
+        optionThree: 'Answer2Cplaceholderplaceholderplaceholder',
+        optionFour: 'Answer2Dplaceholderplaceholder',
         Answer: 3
     },
     {
-        question: 'Question Three', 
-        optionOne: 'Answer 3A',
-        optionTwo: 'Answer 3B',
-        optionThree: 'Answer3C',
-        optionFour: 'Answer3D',
+        question: 'Question Threeplaceholderplaceholderplaceholderplaceholderplaceholderplaceholderplaceholder', 
+        optionOne: 'Answer 3Aplaceholderplaceholderplaceholder',
+        optionTwo: 'Answer 3Bplaceholderplaceholder',
+        optionThree: 'Answer3Cplaceholderplaceholder',
+        optionFour: 'Answer3Dplaceholderplaceholder',
         Answer: 2
     },
     {
-        question: 'Question Four', 
-        optionOne: 'Answer 4A',
-        optionTwo: 'Answer 4B',
-        optionThree: 'Answer4C',
-        optionFour: 'Answer4D',
+        question: 'Question Fourplaceholderplaceholderplaceholderplaceholderplaceholderplaceholder', 
+        optionOne: 'Answer 4Aplaceholderplaceholder',
+        optionTwo: 'Answer 4Bplaceholderplaceholderplaceholder',
+        optionThree: 'Answer4Cplaceholderplaceholderplaceholder',
+        optionFour: 'Answer4Dplaceholderplaceholderplaceholder',
         Answer: 4
     },
     {
-        question: 'Question Five', 
-        optionOne: 'Answer 5A',
-        optionTwo: 'Answer 5B',
-        optionThree: 'Answer5C',
-        optionFour: 'Answer5D',
-        Answer: 5
+        question: 'Question Fiveplaceholderplaceholderplaceholderplaceholderplaceholderplaceholderplaceholderplaceholder', 
+        optionOne: 'Answer 5Aplaceholderplaceholder',
+        optionTwo: 'Answer 5Bplaceholderplaceholder',
+        optionThree: 'Answer5Cplaceholderplaceholder',
+        optionFour: 'Answer5Dplaceholderplaceholderplaceholder',
+        Answer: 3
     }
 ];
 
@@ -102,7 +102,6 @@ var mainTest = function(result) {
         console.log(resultDiv);
     }
 
-    
 
     quizButton = document.querySelectorAll("#quizButton")
     quizButton.forEach((btn, i) => {

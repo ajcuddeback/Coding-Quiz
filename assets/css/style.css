@@ -51,10 +51,6 @@ header {
 }
 
 /* Questions Styles */
-/* .question-type {
-    /* color:red;
-    background-color: blue;
-} */
 .quiz-button {
     width: 500px;
     margin-top: 10px;
@@ -68,3 +64,20 @@ header {
     background-color: rgba(166, 77, 255, .8);
 }
 
+/* Form styles */
+section {
+    display: flex;
+    justify-content: center;
+}
+.initials-input {
+    padding: 4px;
+    border-radius: 4px;
+    margin-right: 10px;
+}
+
+.initials-submit {
+    padding: 4px;
+    color: white;
+    background-color: rgb(166, 77, 255);
+    border-radius: 4px;
+}

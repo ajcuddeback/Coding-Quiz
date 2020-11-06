@@ -1,9 +1,20 @@
 var highScoresDiv = document.querySelector('.highscores-div');
+var loadScores = function() {
+    highScores = localStorage.getItem("scores");
 
-var initials = localStorage.getItem('initials');
-var score = localStorage.getItem('score');
+    if (!highScores) {
+        highScores = [];
+        return false;
+    }
 
-var highScores = document.createElement('h2');
-highScores.className = "high-scores"
-highScores.textContent = initials + "  Score:  " + score;
-highScoresDiv.appendChild(highScores);
+    highScores = JSON.parse(highScores);
+    for(var i = 0; i < highScores.length; i++) {
+        var highScoreEl = document.createElement('h2');
+        highScoreEl.className = "high-scores";
+        highScoreEl.textContent = highScores[i].initials + "  Score:  " + highScores[i].score;
+        highScoresDiv.appendChild(highScoreEl); 
+        
+    }
+}
+
+loadScores()

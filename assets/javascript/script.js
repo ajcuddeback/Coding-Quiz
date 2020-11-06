@@ -2,69 +2,74 @@
 var mainContent = document.querySelector("#main-content");
 var formContainer = document.querySelector("#user-input-form")
 var timerEl = document.querySelector("#countdown");
-var score = []
+highScores = [];
 // Questions Array
 var questions = [
     {
-        question: 'This is a quiestion?This is a quiestion?This is a quiestion?This is a quiestion?This is a quiestion?', 
-        optionOne: 'Answer 1AAnswer 1AAnswer 1A',
-        optionTwo: 'Answer 1Bplaceholderplaceholder',
-        optionThree: 'Answer1Cplaceholderplaceholder',
-        optionFour: 'Answer1Dplaceholderplaceholder',
+        question: 'In what year was ES6 created?', 
+        optionOne: 'A. 2015',
+        optionTwo: 'B. 2014',
+        optionThree: 'C. 2016',
+        optionFour: 'D. 2017',
         Answer: 1
     },
     {
-        question: 'Ques tionTwovp laceho lderplace hold erplaceholder placeholde rplace holderpla ceholderpla ceholder', 
-        optionOne: 'placeholderplaceholderplaceholderplaceholder',
-        optionTwo: 'Answer 2B placeholderplaceholderplaceholderplaceholder',
-        optionThree: 'Answer2Cplaceholderplaceholderplaceholder',
-        optionFour: 'Answer2Dplaceholderplaceholder',
+        question: 'What does the % operand do?', 
+        optionOne: 'Finds the percentage of a decimal number',
+        optionTwo: 'It does not do anything, this is a trick question',
+        optionThree: 'Finds the remainder of the number when we divide the left operand by the right operand',
+        optionFour: 'Places a percent sign in front of a number',
         Answer: 3
     },
     {
-        question: 'Question Threeplaceholderplaceholderplaceholderplaceholderplaceholderplaceholderplaceholder', 
-        optionOne: 'Answer 3Aplaceholderplaceholderplaceholder',
-        optionTwo: 'Answer 3Bplaceholderplaceholder',
-        optionThree: 'Answer3Cplaceholderplaceholder',
-        optionFour: 'Answer3Dplaceholderplaceholder',
+        question: 'Commonly used datatypes include all but what?', 
+        optionOne: 'Booleans',
+        optionTwo: 'Alert',
+        optionThree: 'Strings',
+        optionFour: 'Numbers',
         Answer: 2
     },
     {
-        question: 'Question Fourplaceholderplaceholderplaceholderplaceholderplaceholderplaceholder', 
-        optionOne: 'Answer 4Aplaceholderplaceholder',
-        optionTwo: 'Answer 4Bplaceholderplaceholderplaceholder',
-        optionThree: 'Answer4Cplaceholderplaceholderplaceholder',
-        optionFour: 'Answer4Dplaceholderplaceholderplaceholder',
+        question: 'The contents of a function must be enclosed in which of the following', 
+        optionOne: 'Square Brackets',
+        optionTwo: 'Quotaion Marks',
+        optionThree: 'Parenthisis',
+        optionFour: 'Curly Braces',
         Answer: 4
     },
     {
-        question: 'Question Fiveplaceholderplaceholderplaceholderplaceholderplaceholderplaceholderplaceholderplaceholder', 
-        optionOne: 'Answer 5Aplaceholderplaceholder',
-        optionTwo: 'Answer 5Bplaceholderplaceholder',
-        optionThree: 'Answer5Cplaceholderplaceholder',
-        optionFour: 'Answer5Dplaceholderplaceholderplaceholder',
+        question: 'Which of the following is the correct way to define a new variable', 
+        optionOne: 'variable = newVariable',
+        optionTwo: 'variable newVariable = 0',
+        optionThree: 'var newVariable = 0',
+        optionFour: '0 = newVariable var',
         Answer: 3
     }
 ];
 
+// Counter for Questions Array
 var counter = 0;
+//Start Button selector
 var startButton = document.querySelector("#startBtn");
 
+//Start Quiz Function
 var startQuiz = function() {
     countDown();
     document.querySelector(".welcome-content").remove();
     mainTest();
 };
 
+// Main Test Function
 var mainTest = function(result) {
 
+    //Clear questions on screen per iteration
     function clearBox() {
         document.getElementById('main-content').innerHTML = ""
     }
 
     clearBox()
 
-
+    // Print out questions and choices
     var question = document.createElement("h1");
     question.className = "question-type";
     question.id = "questionType";
@@ -95,6 +100,7 @@ var mainTest = function(result) {
     optionFour.textContent = questions[counter].optionFour;
     mainContent.appendChild(optionFour);
 
+    //Print out the result
     if(counter === 0){
         console.log('dont do anything')
     } else {
@@ -105,15 +111,16 @@ var mainTest = function(result) {
         console.log(resultDiv);
     }
 
-
-    quizButton = document.querySelectorAll("#quizButton")
-    quizButton.forEach((btn, i) => {
+    // Fetch the quiz buttons
+    quizButtons = document.querySelectorAll("#quizButton")
+    quizButtons.forEach((btn, i) => {
         btn.addEventListener("click", function() {
             checkResult(i, questions[counter].Answer)
         });
     });
 };
 
+// Check result function
 var checkResult = function(i, correctAnswer) {
     if(i + 1 === correctAnswer) {
         var result = "<h2> Correct! </h2>"
@@ -125,6 +132,7 @@ var checkResult = function(i, correctAnswer) {
     mainTest(result);
 }
 
+// Countdown Function
 var timeLeft = 60
 var countDown = function() {
     var timeInterval = setInterval(function() {
@@ -139,15 +147,20 @@ var countDown = function() {
     }, 1000);
 };
 
+// End test function
 var endTest = function() {
 
+    // Clear the last quesiton
     function clearBox() {
         document.getElementById('main-content').innerHTML = ""
+        document.getElementById('highscores-link').innerHTML = ""
     }
     clearBox()
 
+    // Change the timer to score
     timerEl.textContent = "Score: " + timeLeft;
 
+    // Print out the Form
     var inputInstructions = document.createElement('h2');
     inputInstructions.className = "input-instructions";
     inputInstructions.textContent = "Please enter your initials: ";
@@ -164,18 +177,28 @@ var endTest = function() {
     initialsSubmit.setAttribute('type', 'submit');
     formContainer.appendChild(initialsSubmit);
 
+    // Store form data to local storage
     initialsSubmit.addEventListener("click", function(event) {
-        // event.preventDefault();
+        
         
         var initials = initialsInput.value;
 
-        if (initials === "") {
-            displayMessage('error', 'initials can not be blank')
-        } 
+        if (!initials) {
+            alert("Please enter initials!")
+            endTest();
+        } else {
+            var scoreObject = {
+                initials: initials,
+                score: timeLeft
+            }
+            highScores.push(scoreObject);
+            console.log(highScores)
+        }
 
-        localStorage.setItem('initials', initials);
-        localStorage.setItem('score', timeLeft);
+        localStorage.setItem('scores', JSON.stringify(highScores));
     })
 
 }
+
+// Start Button
 startButton.addEventListener ("click", startQuiz);

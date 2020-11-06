@@ -121,7 +121,11 @@ var checkResult = function(i, correctAnswer) {
         timeLeft = timeLeft - 10;
     }
     counter++
-    mainTest(result)
+    if (counter < 5){
+        mainTest(result)
+    } else{
+        endTest();
+    }
 }
 
 var timeLeft = 60
@@ -133,8 +137,15 @@ var countDown = function() {
         }
         else {
             clearInterval(timeInterval);
+            endTest()
         }
     }, 1000);
 };
 
+var endTest = function() {
+    function clearBox() {
+        document.getElementById('main-content').innerHTML = ""
+    }
+    clearBox()
+}
 startButton.addEventListener ("click", startQuiz);

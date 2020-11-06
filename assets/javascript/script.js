@@ -131,7 +131,7 @@ var checkResult = function(i, correctAnswer) {
 var timeLeft = 60
 var countDown = function() {
     var timeInterval = setInterval(function() {
-        if (timeLeft >= 0) {
+        if (counter < 5 && timeLeft >= 0) {
             timerEl.textContent = "Time left: " + timeLeft;
             timeLeft--
         }

@@ -1,5 +1,6 @@
 var highScoresDiv = document.querySelector('.highscores-div');
 var highScores = [];
+var clearDataBtn = document.querySelector('#clearData')
 var loadScores = function() {
     highScores = localStorage.getItem("scores");
 
@@ -33,5 +34,10 @@ var highScoreOutput = function() {
         highScoresDiv.appendChild(highScoreEl); 
     }
 }
+
+clearDataBtn.addEventListener('click', function() {
+    localStorage.clear();
+})
+
 loadScores()
 highScoreOutput()

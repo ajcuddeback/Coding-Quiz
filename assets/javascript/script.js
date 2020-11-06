@@ -53,13 +53,14 @@ var startQuiz = function() {
     mainTest();
 };
 
-var mainTest = function() {
+var mainTest = function(result) {
 
     function clearBox() {
         document.getElementById('main-content').innerHTML = ""
     }
 
     clearBox()
+
 
     var question = document.createElement("h1");
     question.className = "question-type";
@@ -91,8 +92,13 @@ var mainTest = function() {
     optionFour.textContent = questions[counter].optionFour;
     mainContent.appendChild(optionFour);
 
+    var resultDiv = document.createElement('div');
+    resultDiv.className = "result-div";
+    resultDiv.innerHTML = result;
+    mainContent.appendChild(resultDiv);
+    console.log(resultDiv);
+
     quizButton = document.querySelectorAll("#quizButton")
-    console.log(quizButton)
     quizButton.forEach((btn, i) => {
         btn.addEventListener("click", function() {
             checkResult(i, questions[counter].Answer)
@@ -100,13 +106,13 @@ var mainTest = function() {
     });
 };
 var checkResult = function(i, correctAnswer) {
-    console.log(i)
-    console.log(correctAnswer)
     if(i + 1 === correctAnswer) {
-        alert('Correct')
+        var result = "<h2> Correct! </h2>"
+    } else {
+        var result = "<h2> Incorrect! </h2>"
     }
     counter++
-    mainTest()
+    mainTest(result)
 }
 
 startButton.addEventListener ("click", startQuiz);

@@ -2,7 +2,7 @@
 var mainContent = document.querySelector("#main-content");
 var formContainer = document.querySelector("#user-input-form")
 var timerEl = document.querySelector("#countdown");
-highScores = [];
+var highScores = [];
 // Questions Array
 var questions = [
     {
@@ -192,13 +192,22 @@ var endTest = function() {
                 score: timeLeft
             }
             highScores.push(scoreObject);
-            console.log(highScores)
         }
-
         localStorage.setItem('scores', JSON.stringify(highScores));
     })
 
 }
 
+var loadScores = function() {
+    highScores = localStorage.getItem("scores");
+
+    if (!highScores) {
+        highScores = [];
+        return false;
+    }
+
+    highScores = JSON.parse(highScores);
+}
 // Start Button
+loadScores();
 startButton.addEventListener ("click", startQuiz);

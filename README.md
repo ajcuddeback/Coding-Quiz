@@ -18,7 +18,7 @@
 
 
 ## Website
-![Coding Quiz](assets/images/screencapture-127-0-0-1-5501-index-html-2020-11-06-18_28_47)
+![Coding Quiz](assets/images/screencapture-127-0-0-1-5501-index-html-2020-11-06-18_28_47.png)
 
 [Deployed Coding Quiz](https://ajcuddeback.github.io/Coding-Quiz)
 

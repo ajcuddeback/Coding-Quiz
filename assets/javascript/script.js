@@ -1,5 +1,6 @@
 //create all global variables
 var mainContent = document.querySelector("#main-content");
+var timerDiv = document.querySelector("#timer");
 
 // Questions Array
 var questions = [
@@ -54,7 +55,6 @@ var startQuiz = function() {
 };
 
 var mainTest = function(result) {
-
     function clearBox() {
         document.getElementById('main-content').innerHTML = ""
     }
@@ -110,6 +110,7 @@ var mainTest = function(result) {
         });
     });
 };
+
 var checkResult = function(i, correctAnswer) {
     if(i + 1 === correctAnswer) {
         var result = "<h2> Correct! </h2>"
@@ -119,5 +120,6 @@ var checkResult = function(i, correctAnswer) {
     counter++
     mainTest(result)
 }
+
 
 startButton.addEventListener ("click", startQuiz);

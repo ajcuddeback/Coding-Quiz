@@ -9,7 +9,7 @@ var questions = [
         optionTwo: 'Answer 1B',
         optionThree: 'Answer1C',
         optionFour: 'Answer1D',
-        Answer: 'Answer 1A'
+        Answer: 1
     },
     {
         question: 'Question Two', 
@@ -17,7 +17,7 @@ var questions = [
         optionTwo: 'Answer 2B',
         optionThree: 'Answer2C',
         optionFour: 'Answer2D',
-        Answer: 'Answer 2C'
+        Answer: 3
     },
     {
         question: 'Question Three', 
@@ -25,7 +25,7 @@ var questions = [
         optionTwo: 'Answer 3B',
         optionThree: 'Answer3C',
         optionFour: 'Answer3D',
-        Answer: 'Answer 3A'
+        Answer: 2
     },
     {
         question: 'Question Four', 
@@ -33,7 +33,7 @@ var questions = [
         optionTwo: 'Answer 4B',
         optionThree: 'Answer4C',
         optionFour: 'Answer4D',
-        Answer: 'Answer 4B'
+        Answer: 4
     },
     {
         question: 'Question Five', 
@@ -41,13 +41,12 @@ var questions = [
         optionTwo: 'Answer 5B',
         optionThree: 'Answer5C',
         optionFour: 'Answer5D',
-        Answer: 'Answer 5D'
+        Answer: 5
     }
 ];
 
 var counter = 0;
 var startButton = document.querySelector("#startBtn");
-var quizButton = document.querySelectorAll("#quizButton");
 
 var startQuiz = function() {
     document.querySelector(".welcome-content").remove();
@@ -55,6 +54,13 @@ var startQuiz = function() {
 };
 
 var mainTest = function() {
+
+    function clearBox() {
+        document.getElementById('main-content').innerHTML = ""
+    }
+
+    clearBox()
+
     var question = document.createElement("h1");
     question.className = "question-type";
     question.id = "questionType";
@@ -85,11 +91,22 @@ var mainTest = function() {
     optionFour.textContent = questions[counter].optionFour;
     mainContent.appendChild(optionFour);
 
-    // debugger;
-    counter++
+    quizButton = document.querySelectorAll("#quizButton")
+    console.log(quizButton)
+    quizButton.forEach((btn, i) => {
+        btn.addEventListener("click", function() {
+            checkResult(i, questions[counter].Answer)
+        });
+    });
 };
+var checkResult = function(i, correctAnswer) {
+    console.log(i)
+    console.log(correctAnswer)
+    if(i + 1 === correctAnswer) {
+        alert('Correct')
+    }
+    counter++
+    mainTest()
+}
 
 startButton.addEventListener ("click", startQuiz);
-quizButton.forEach((btn) => {
-    btn.addEventListener("click", mainTest)
-})

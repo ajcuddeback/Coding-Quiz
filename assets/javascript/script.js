@@ -1,5 +1,6 @@
 //create all global variables
 var mainContent = document.querySelector("#main-content");
+var formContainer = document.querySelector("#user-input-form")
 var timerEl = document.querySelector("#countdown");
 
 // Questions Array
@@ -121,11 +122,7 @@ var checkResult = function(i, correctAnswer) {
         timeLeft = timeLeft - 10;
     }
     counter++
-    if (counter < 5){
-        mainTest(result)
-    } else{
-        endTest();
-    }
+    mainTest(result);
 }
 
 var timeLeft = 60
@@ -137,15 +134,48 @@ var countDown = function() {
         }
         else {
             clearInterval(timeInterval);
-            endTest()
+             endTest()
         }
     }, 1000);
 };
 
 var endTest = function() {
+
     function clearBox() {
         document.getElementById('main-content').innerHTML = ""
     }
     clearBox()
+
+    timerEl.textContent = "Score: " + timeLeft;
+
+    var inputInstructions = document.createElement('h2');
+    inputInstructions.className = "input-instructions";
+    inputInstructions.textContent = "Please enter your initials: ";
+    formContainer.appendChild(inputInstructions)
+
+    var initialsInput = document.createElement('input');
+    initialsInput.className = "initials-input";
+    initialsInput.setAttribute('placeholder', 'Initials');
+    formContainer.appendChild(initialsInput);
+
+    var initialsSubmit = document.createElement('button');
+    initialsSubmit.className = "initials-submit";
+    initialsSubmit.textContent = "Submit";
+
+    formContainer.appendChild(initialsSubmit);
+
+    initialsSubmit.addEventListener("click", function(event) {
+        event.preventDefault();
+
+        var initials = initialsInput.value;
+
+        if (initials === "") {
+            displayMessage('error', 'initials can not be blank')
+        } 
+
+        localStorage.setItem('initials', initials);
+        localStorage.setItem('score', timeLeft);
+    })
+
 }
 startButton.addEventListener ("click", startQuiz);

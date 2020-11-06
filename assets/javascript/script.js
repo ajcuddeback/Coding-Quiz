@@ -2,7 +2,7 @@
 var mainContent = document.querySelector("#main-content");
 var formContainer = document.querySelector("#user-input-form")
 var timerEl = document.querySelector("#countdown");
-
+var score = []
 // Questions Array
 var questions = [
     {
@@ -161,12 +161,12 @@ var endTest = function() {
     var initialsSubmit = document.createElement('button');
     initialsSubmit.className = "initials-submit";
     initialsSubmit.textContent = "Submit";
-
+    initialsSubmit.setAttribute('type', 'submit');
     formContainer.appendChild(initialsSubmit);
 
     initialsSubmit.addEventListener("click", function(event) {
-        event.preventDefault();
-
+        // event.preventDefault();
+        
         var initials = initialsInput.value;
 
         if (initials === "") {

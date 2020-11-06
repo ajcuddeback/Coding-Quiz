@@ -1,6 +1,6 @@
 //create all global variables
 var mainContent = document.querySelector("#main-content");
-var timerDiv = document.querySelector("#timer");
+var timerEl = document.querySelector("#countdown");
 
 // Questions Array
 var questions = [
@@ -50,11 +50,13 @@ var counter = 0;
 var startButton = document.querySelector("#startBtn");
 
 var startQuiz = function() {
+    countDown();
     document.querySelector(".welcome-content").remove();
     mainTest();
 };
 
 var mainTest = function(result) {
+
     function clearBox() {
         document.getElementById('main-content').innerHTML = ""
     }
@@ -116,10 +118,23 @@ var checkResult = function(i, correctAnswer) {
         var result = "<h2> Correct! </h2>"
     } else {
         var result = "<h2> Incorrect! </h2>"
+        timeLeft = timeLeft - 10;
     }
     counter++
     mainTest(result)
 }
 
+var timeLeft = 60
+var countDown = function() {
+    var timeInterval = setInterval(function() {
+        if (timeLeft >= 0) {
+            timerEl.textContent = "Time left: " + timeLeft;
+            timeLeft--
+        }
+        else {
+            clearInterval(timeInterval);
+        }
+    }, 1000);
+};
 
 startButton.addEventListener ("click", startQuiz);

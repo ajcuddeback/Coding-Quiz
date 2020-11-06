@@ -16,6 +16,15 @@ main {
     /* border: 1px solid black; */
 }
 
+/* Header styles */
+header {
+    display: flex;
+    justify-content: flex-end;
+}
+#countdown {
+    margin-right: 30px;
+}
+
 /* Welcome Styles */
 .welcome-heading {
     font-size: 50px;

@@ -92,11 +92,17 @@ var mainTest = function(result) {
     optionFour.textContent = questions[counter].optionFour;
     mainContent.appendChild(optionFour);
 
-    var resultDiv = document.createElement('div');
-    resultDiv.className = "result-div";
-    resultDiv.innerHTML = result;
-    mainContent.appendChild(resultDiv);
-    console.log(resultDiv);
+    if(counter === 0){
+        console.log('dont do anything')
+    } else {
+        var resultDiv = document.createElement('div');
+        resultDiv.className = "result-div";
+        resultDiv.innerHTML = result;
+        mainContent.appendChild(resultDiv);
+        console.log(resultDiv);
+    }
+
+    
 
     quizButton = document.querySelectorAll("#quizButton")
     quizButton.forEach((btn, i) => {

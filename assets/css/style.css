@@ -60,6 +60,7 @@ header {
 .start-btn:hover {
     top: 2px;
     left: 1px;
+    background-color: rgba(135, 36, 235, 0.8);
 }
 .start-btn:active {
     top: 3px;

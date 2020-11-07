@@ -136,7 +136,7 @@ var checkResult = function(i, correctAnswer) {
 var timeLeft = 60
 var countDown = function() {
     var timeInterval = setInterval(function() {
-        if (counter < 5 && timeLeft >= 0) {
+        if (counter < 5 && timeLeft > 0) {
             timerEl.textContent = "Time left: " + timeLeft;
             timeLeft--
         }
@@ -158,7 +158,11 @@ var endTest = function() {
     clearBox()
 
     // Change the timer to score
+    if (timeLeft < 0) {
+        timerEl.textContent = "Score:  " + "0";
+    } else {
     timerEl.textContent = "Score: " + timeLeft;
+    };
 
     // Print out the Form
     var inputInstructions = document.createElement('h2');

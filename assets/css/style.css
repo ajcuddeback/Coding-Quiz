@@ -119,3 +119,37 @@ section {
 .initials-submit:hover {
     background-color: rgba(135, 36, 235, 0.8);
 }
+
+@media screen and (max-width: 769px) {
+    .quiz-button {
+        width: 300px;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .quiz-button {
+        width: 200px;
+    }
+}
+
+@media screen and (max-width: 376px) {
+    .quiz-button {
+        width: 100px;
+        margin-right: 5px;
+        font-size: 9px;
+    }
+    .main-content {
+        width: 70%;
+        margin-top: 100px;
+    }
+    .welcome-heading {
+        font-size: 25px;
+    }
+    .welcome-rules {
+        font-size: 15px;
+    }
+    #user-input-form {
+        width: 70%;
+    }
+
+}

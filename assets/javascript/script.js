@@ -52,6 +52,9 @@ var counter = 0;
 //Start Button selector
 var startButton = document.querySelector("#startBtn");
 
+// Get rid of form styling
+formContainer.id = ""
+
 //Start Quiz Function
 var startQuiz = function() {
     countDown();
@@ -157,12 +160,16 @@ var endTest = function() {
     }
     clearBox()
 
+    //return form container styling
+    formContainer.id = "user-input-form"
+    
     // Change the timer to score
     if (timeLeft < 0) {
         timerEl.textContent = "Score:  " + "0";
     } else {
     timerEl.textContent = "Score: " + timeLeft;
     };
+
 
     // Print out the Form
     var inputInstructions = document.createElement('h2');

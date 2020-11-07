@@ -36,3 +36,10 @@ form > button:hover {
    top: 3px;
    background-color: rgba(166, 77, 255, .8);
 }
+
+@media screen and (max-width: 376px) {
+    .highscores-div {
+        width: 50%;
+        margin-top: 100px;
+    }
+}

@@ -221,16 +221,5 @@ const endTest = function () {
     })
 }
 
-const loadScores = function () {
-    highScores = localStorage.getItem("scores");
 
-    if (!highScores) {
-        highScores = [];
-        return false;
-    }
-
-    highScores = JSON.parse(highScores);
-}
-// Start Button
-loadScores();
 startButton.addEventListener("click", startQuiz);

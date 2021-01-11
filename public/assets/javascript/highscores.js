@@ -1,5 +1,4 @@
 var highScoresDiv = document.querySelector('.highscores-div');
-var clearDataBtn = document.querySelector('#clearData')
 var loadScores = function () {
     fetch('/api/scores', {
         method: 'GET',
@@ -39,8 +38,6 @@ var highScoreOutput = function (highScores) {
     }
 }
 
-clearDataBtn.addEventListener('click', function () {
-    localStorage.clear();
-})
+
 
 loadScores()

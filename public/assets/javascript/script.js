@@ -1,12 +1,14 @@
-const { post } = require("../../../routes/apiRoutes");
+
+
 
 //create all global variables
 const mainContent = document.querySelector("#main-content");
 const formContainer = document.querySelector("#user-input-form")
 const timerEl = document.querySelector("#countdown");
 let scoreObject = {};
+let result;
 // Questions Array
-const questions = [
+let questions = [
     {
         question: 'In what year was ES6 created?',
         optionOne: 'A. 2015',
@@ -75,31 +77,31 @@ const mainTest = function (result) {
     clearBox()
 
     // Print out questions and choices
-    const question = document.createElement("h1");
+    let question = document.createElement("h1");
     question.className = "question-type";
     question.id = "questionType";
     question.textContent = questions[counter].question;
     mainContent.appendChild(question);
 
-    const optionOne = document.createElement("button");
+    let optionOne = document.createElement("button");
     optionOne.className = "quiz-button btn";
     optionOne.id = "quizButton";
     optionOne.textContent = questions[counter].optionOne;
     mainContent.appendChild(optionOne);
 
-    const optionTwo = document.createElement("button");
+    let optionTwo = document.createElement("button");
     optionTwo.className = "quiz-button btn";
     optionTwo.id = "quizButton";
     optionTwo.textContent = questions[counter].optionTwo;
     mainContent.appendChild(optionTwo);
 
-    const optionThree = document.createElement("button");
+    let optionThree = document.createElement("button");
     optionThree.className = "quiz-button btn";
     optionThree.id = "quizButton";
     optionThree.textContent = questions[counter].optionThree;
     mainContent.appendChild(optionThree);
 
-    const optionFour = document.createElement("button");
+    let optionFour = document.createElement("button");
     optionFour.className = "quiz-button btn";
     optionFour.id = "quizButton";
     optionFour.textContent = questions[counter].optionFour;
@@ -129,9 +131,9 @@ const mainTest = function (result) {
 const checkResult = function (i, correctAnswer) {
     let userAnswer = i + 1
     if (userAnswer === correctAnswer) {
-        let result = "<h2> Correct! </h2>"
+        result = "<h2> Correct! </h2>"
     } else {
-        let result = "<h2> Incorrect! </h2>"
+        result = "<h2> Incorrect! </h2>"
         timeLeft = timeLeft - 10;
     }
     counter++
@@ -172,6 +174,7 @@ const endTest = function () {
     } else {
         timerEl.textContent = "Score: " + timeLeft;
     };
+    const score = timeLeft.toString()
 
 
     // Print out the Form
@@ -193,24 +196,25 @@ const endTest = function () {
 
     // Store form data to local storage
     initialsSubmit.addEventListener("click", function (event) {
+        event.preventDefault()
 
 
         let initials = initialsInput.value;
+        console.log(initials)
+        console.log(score)
 
         if (!initials) {
             alert("Please enter initials!")
             endTest();
         } else {
-            scoreObject = {
-                initials: initials,
-                score: timeLeft
-            }
+            scoreObject = { score, initials }
         }
+        console.log(JSON.stringify(scoreObject))
         fetch('api/scores', {
             method: 'POST',
             headers: {
                 Accept: 'application/json',
-                'Constent-Type': 'application/json'
+                'Content-Type': 'application/json'
             },
             body: JSON.stringify(scoreObject)
         }).then(response => {

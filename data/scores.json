@@ -1,8 +1,8 @@
 {
-    "scores": [
-        {
-            "score": "Test Score",
-            "initials": "Test Initials"
-        }
-    ]
+  "scores": [
+    {
+      "score": "Test Score",
+      "initials": "Test Initials"
+    }
+  ]
 }

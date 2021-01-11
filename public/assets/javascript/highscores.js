@@ -44,4 +44,3 @@ clearDataBtn.addEventListener('click', function () {
 })
 
 loadScores()
-highScoreOutput()

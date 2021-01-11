@@ -13,8 +13,7 @@
 * When page loads, press the purple start key. You will have 60 seconds to answer a total of 5 questions. But there is a catch! Every question you get wrong 10 seconds will be taken off your timer. The remaining time on the clock at the end of the quiz will be your score! Insert your initials to save your score! Can you be the fastest to take the test?
 
 ## Features
-* Local storage and DOM API's
-* Clear high scores with the clear button!
+* Uses Express and Node to create a api and a server to save high scores
 
 
 ## Website

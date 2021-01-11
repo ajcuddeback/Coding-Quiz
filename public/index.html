@@ -1,29 +1,34 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Coding Quiz</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="./assets/css/style.css">
-    </head>
-    <body>
-        <header>
-            <a href="./highscores.html" class="highscores-link" id="highscores-link">View High Scores</a>
-            <h2 id="countdown"></h2>
-        </header>
-        <main id="main-wrapper">
-            <div class="main-content" id="main-content">
-                <div class="welcome-content">
-                    <h1 class="welcome-heading" id="welcomeHeading">Welcome to Code Quiz</h1>
-                    <h3 class="welcome-rules" id="welcomeRules">Try to answer as many questions as possible before the timer runs out! Once you press start you will have 60 seconds to answer 5 questions. Each answer you get wrong 10 seconds will be deducted from you time. Good Luck!</h3>
-                    <button class="start-btn" id="startBtn">Start</button>
-                </div>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Coding Quiz</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+
+<body>
+    <header>
+        <a href="/scores" class="highscores-link" id="highscores-link">View High Scores</a>
+        <h2 id="countdown"></h2>
+    </header>
+    <main id="main-wrapper">
+        <div class="main-content" id="main-content">
+            <div class="welcome-content">
+                <h1 class="welcome-heading" id="welcomeHeading">Welcome to Code Quiz</h1>
+                <h3 class="welcome-rules" id="welcomeRules">Try to answer as many questions as possible before the timer
+                    runs out! Once you press start you will have 60 seconds to answer 5 questions. Each answer you get
+                    wrong 10 seconds will be deducted from you time. Good Luck!</h3>
+                <button class="start-btn" id="startBtn">Start</button>
             </div>
-        </main>
-        <section>
-            <form id="user-input-form" action="./highscores.html"></form>
-        </section>
-        <script src="./assets/javascript/script.js" async defer></script>
-    </body>
+        </div>
+    </main>
+    <section>
+        <form id="user-input-form" action="/scores"></form>
+    </section>
+    <script src="./assets/javascript/script.js" async defer></script>
+</body>
+
 </html>

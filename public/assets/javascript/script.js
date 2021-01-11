@@ -115,7 +115,6 @@ const mainTest = function (result) {
         resultDiv.className = "result-div";
         resultDiv.innerHTML = result;
         mainContent.appendChild(resultDiv);
-        console.log(resultDiv);
     }
 
     // Fetch the quiz buttons
@@ -196,12 +195,9 @@ const endTest = function () {
 
     // Store form data to local storage
     initialsSubmit.addEventListener("click", function (event) {
-        event.preventDefault()
 
 
         let initials = initialsInput.value;
-        console.log(initials)
-        console.log(score)
 
         if (!initials) {
             alert("Please enter initials!")
@@ -209,7 +205,6 @@ const endTest = function () {
         } else {
             scoreObject = { score, initials }
         }
-        console.log(JSON.stringify(scoreObject))
         fetch('api/scores', {
             method: 'POST',
             headers: {

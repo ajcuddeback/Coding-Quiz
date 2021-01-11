@@ -1,18 +1,22 @@
 var highScoresDiv = document.querySelector('.highscores-div');
-var highScores = [];
 var clearDataBtn = document.querySelector('#clearData')
-var loadScores = function() {
-    highScores = localStorage.getItem("scores");
-
-    if (!highScores) {
-        highScores = [];
-        return false;
-    }
-    highScores = JSON.parse(highScores);
-    highScores.sort(compare);
+var loadScores = function () {
+    fetch('/api/scores', {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+    }).then(respone => {
+        if (!respone.ok) {
+            return alert('Error: ' + respone.statusText);
+        }
+        return respone.json();
+    }).then(scoreData => {
+        highScoreOutput(scoreData)
+    })
 }
 
-var compare = function(a, b) {
+var compare = function (a, b) {
     var scoreA = parseInt(a.score);
     var scoreB = parseInt(b.score);
 
@@ -25,17 +29,17 @@ var compare = function(a, b) {
     return comparison;
 }
 
-var highScoreOutput = function() {
+var highScoreOutput = function (highScores) {
 
-    for(var i = 0; i < highScores.length; i++) {
+    for (var i = 0; i < highScores.length; i++) {
         var highScoreEl = document.createElement('h2');
         highScoreEl.className = "high-scores";
         highScoreEl.textContent = highScores[i].initials + "  Score:  " + highScores[i].score;
-        highScoresDiv.appendChild(highScoreEl); 
+        highScoresDiv.appendChild(highScoreEl);
     }
 }
 
-clearDataBtn.addEventListener('click', function() {
+clearDataBtn.addEventListener('click', function () {
     localStorage.clear();
 })
 

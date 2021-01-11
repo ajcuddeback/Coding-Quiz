@@ -115,7 +115,7 @@ var mainTest = function(result) {
     }
 
     // Fetch the quiz buttons
-    quizButtons = document.querySelectorAll("#quizButton")
+    quizButtons = document.querySelectorAll("#quizButton") //ask about this
     quizButtons.forEach((btn, i) => {
         btn.addEventListener("click", function() {
             checkResult(i, questions[counter].Answer)
@@ -125,7 +125,8 @@ var mainTest = function(result) {
 
 // Check result function
 var checkResult = function(i, correctAnswer) {
-    if(i + 1 === correctAnswer) {
+    var userAnswer = i + 1
+    if(userAnswer === correctAnswer) {
         var result = "<h2> Correct! </h2>"
     } else {
         var result = "<h2> Incorrect! </h2>"

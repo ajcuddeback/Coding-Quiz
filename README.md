@@ -17,7 +17,6 @@
 
 
 ## Website
+[Deployed Coding Quiz](https://arcane-mountain-15765.herokuapp.com/)
 ![Coding Quiz](public/assets/images/screencapture-127-0-0-1-5502-index-html-2020-11-07-10_21_18.png)
-
-[Deployed Coding Quiz](https://ajcuddeback.github.io/Coding-Quiz)
 
